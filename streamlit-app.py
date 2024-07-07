@@ -14,11 +14,12 @@ import matplotlib.pyplot as plt
 matplotlib.use("Agg")
 
 from tensorflow.keras.models import load_model
-from sklearn.preprocessing import LabelEncoder
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import classification_report
-from imutils import paths
-from imutils.video import VideoStream
+from tensorflow.keras.preprocessing.image import img_to_array
+# from sklearn.preprocessing import LabelEncoder
+# from sklearn.model_selection import train_test_split
+# from sklearn.metrics import classification_report
+# from imutils import paths
+# from imutils.video import VideoStream
 
 net = cv2.dnn.readNetFromCaffe("./deploy.prototxt.txt", "./res10_300x300_ssd_iter_140000.caffemodel")
 model = load_model("liveness.keras")
@@ -77,7 +78,8 @@ if camera or uploaded_file:
                 preds = model.predict(face)[0]
                 j = np.argmax(preds)
                 label = le.classes_[j]
-                if(str(label).endswith("Real")):
+                print(label)
+                if(str(label).endswith("real")):
                     st.success("Probabilidade da foto ser real é de {:.2f}%".format(confidence*100))
                     break
                 else:
