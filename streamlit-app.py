@@ -55,6 +55,7 @@ if camera is not None:
 if camera or uploaded_file:
     confidence = 0
     with st.spinner('Classificando imagem...'):
+        label = ""
         image = imutils.resize(imagem, width=600)
         (h, w) = imagem.shape[:2]
         blob = cv2.dnn.blobFromImage(cv2.resize(imagem, (300, 300)), 1.0, (300, 300), (104.0, 177.0, 123.0))
@@ -78,7 +79,6 @@ if camera or uploaded_file:
                 preds = model.predict(face)[0]
                 j = np.argmax(preds)
                 label = le.classes_[j]
-                print(label)
                 if(str(label).endswith("real")):
                     st.success("Probabilidade da foto ser real é de {:.2f}%".format(confidence*100))
                     break
