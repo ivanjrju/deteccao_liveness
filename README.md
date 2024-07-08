@@ -5,10 +5,14 @@ Este projeto tem como objetivo detectar a vivacidade de um rosto utilizando téc
 ## Estrutura do Projeto
 
 - `deteccao_liveness_notebook.ipynb`: Contém todo o desenvolvimento do projeto, incluindo o treinamento e a avaliação do modelo de detecção de vivacidade.
+- `streamlit-app.py`: Código para a aplicação web utilizando Streamlit.
+- `liveness.keras`: Modelo treinado após execução.
+- `le.pickle`: Categorias treinadas para o modelo.
 - `requirements.txt`: Lista de dependências necessárias para rodar o projeto.
 - `deploy.prototxt.txt`: Configuração do modelo de rede neural para a detecção facial.
 - `res10_300x300_ssd_iter_140000.caffemodel`: Pesos do modelo treinado para a detecção facial.
-- `streamlit-app.py`: Código para a aplicação web utilizando Streamlit.
+- `./videos`: Arquivos de vídeo para processamento.
+- `./dataset`: Imagens processadas.
 
 ## Aplicação Web com Streamlit
 A aplicação web desenvolvida em Streamlit permite que os usuários carreguem uma imagem e obtenham a detecção de vivacidade. A interface é simples e intuitiva, facilitando o uso da tecnologia por qualquer pessoa.
